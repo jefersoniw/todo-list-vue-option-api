@@ -11,7 +11,7 @@
           placeholder="Ex: Preciso levar o carro para lavar hoje à tarde" required auto-complete="off"></b-form-textarea>
       </b-form-group>
 
-      <b-button class="mt-3" type="submit" variant="outline-success">Salvar</b-button>
+      <b-button class="mt-3" type="submit" variant="outline-success" @click="saveTask">Salvar</b-button>
     </b-form>
   </div>
 </template>
@@ -27,5 +27,17 @@ export default {
       }
     }
   },
+  methods: {
+    saveTask(e) {
+      e.preventDefault();
+
+      let tasks = (localStorage.getItem('tasks')) ? JSON.parse(localStorage.getItem('tasks')) : [];
+      tasks.push(this.form);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+
+      this.$router.push({ name: 'list' });
+
+    }
+  }
 }
 </script>
