@@ -24,20 +24,40 @@ export default {
       form: {
         subject: null,
         description: null
-      }
+      },
+      methodSave: 'new',
     }
   },
   methods: {
     saveTask(e) {
       e.preventDefault();
 
-      let tasks = (localStorage.getItem('tasks')) ? JSON.parse(localStorage.getItem('tasks')) : [];
-      tasks.push(this.form);
-      localStorage.setItem('tasks', JSON.stringify(tasks));
+      if (this.methodSave === 'update') {
+        let tasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks[this.$route.params.idx] = this.form
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        this.$router.push({ name: 'list' });
 
-      this.$router.push({ name: 'list' });
+      } else {
+        let tasks = (localStorage.getItem('tasks')) ? JSON.parse(localStorage.getItem('tasks')) : [];
+        tasks.push(this.form);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        this.$router.push({ name: 'list' });
+
+      }
+
+
 
     }
+  },
+  created() {
+    //PEGANDO O INDICE DA TAREFA DO LOCAL STORAGE E EXIBINDO NO FORM
+    if (this.$route.params.idx === 0 || this.$route.params.idx !== undefined) {
+      this.methodSave = 'update';
+      let tasks = JSON.parse(localStorage.getItem('tasks'));
+      this.form = tasks[this.$route.params.idx];
+    }
   }
+
 }
 </script>

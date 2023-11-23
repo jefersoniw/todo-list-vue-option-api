@@ -13,7 +13,7 @@ const routes = [
   },
   {
     path: '/form',
-    name: 'Form',
+    name: 'form',
     component: Form
   }
 ]

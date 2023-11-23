@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-2">
-    <div class="mt-2" :key="index" v-for="(task, index) in   tasks ">
+    <div class="mt-2" :key="index" v-for="(task, index) in tasks">
       <b-card :title="task.subject">
         <b-card-text>{{ task.description }}</b-card-text>
 
@@ -22,6 +22,11 @@ export default {
   },
   created() {
     this.tasks = (localStorage.getItem('tasks')) ? JSON.parse(localStorage.getItem('tasks')) : []
+  },
+  methods: {
+    editTask(idx) {
+      this.$router.push({ name: 'form', params: { idx } });
+    }
   }
 }
 </script>
