@@ -1,13 +1,20 @@
 <template>
   <div class="container mt-2">
+    <div v-if="tasks == ''">
+      <div>
+        <div class="verificacao">Sem Tarefas!</div>
+      </div>
+    </div>
     <div class="mt-2" :key="index" v-for="(task, index) in tasks">
-      <b-card :title="task.subject">
-        <b-card-text>{{ task.description }}</b-card-text>
+      <div>
+        <b-card :title="task.subject">
+          <b-card-text>{{ task.description }}</b-card-text>
 
-        <b-button variant="outline-primary" @click="editTask(index)">Editar</b-button>
-        &nbsp
-        <b-button variant="outline-danger" @click="deleteTask(index)">Apagar</b-button>
-      </b-card>
+          <b-button variant="outline-primary" @click="editTask(index)">Editar</b-button>
+          &nbsp
+          <b-button variant="outline-danger" @click="deleteTask(index)">Apagar</b-button>
+        </b-card>
+      </div>
     </div>
   </div>
 </template>
@@ -39,3 +46,10 @@ export default {
   }
 }
 </script>
+<style>
+.verificacao {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+</style>

@@ -29,5 +29,6 @@ export default {
 .project {
   color: rgb(255, 217, 0) !important;
   font-weight: bold;
+  padding: 15px;
 }
 </style>
