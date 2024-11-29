@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <b-navbar toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand to="/">ToDoList</b-navbar-brand>
+      <b-navbar-brand class="project" to="/">ToDoList</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -25,6 +25,9 @@ export default {
   }
 }
 </script>
-<style lang="">
-  
+<style>
+.project {
+  color: rgb(255, 217, 0) !important;
+  font-weight: bold;
+}
 </style>

@@ -26,6 +26,15 @@ export default {
   methods: {
     editTask(idx) {
       this.$router.push({ name: 'form', params: { idx } });
+    },
+    deleteTask(idx) {
+      let tasks = JSON.parse(localStorage.getItem('tasks'));
+      tasks.splice(idx, 1);
+
+      localStorage.removeItem('tasks');
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+
+      location.reload();
     }
   }
 }
