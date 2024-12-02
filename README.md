@@ -1,28 +1,3 @@
-# todo-list-vue-option-api
-
-## Project setup
-
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-"# todo-list-vue-option-api"
-
 # PROJETO GERENCIADOR DE TAREFAS
 
 ## 📖 Sobre o projeto
@@ -40,6 +15,16 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Node.Js
 
 ## ♻️ Como executar o projeto
+
+```
+npm install
+```
+
+```
+npm run serve
+```
+
+## 🖼️ Imagens do projeto
 
 <img src="./public/img/todoList.png" />
 
